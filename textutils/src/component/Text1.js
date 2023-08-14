@@ -28,7 +28,7 @@ export default function Text1(props) {
     const [text,setText] = useState('');
     return(
         <>
-        <div>
+        <div >
             <h3>{props.heading}</h3>
             <div className="mb-3 ">
                 <textarea className="form-control" id="text1" value={text} onChange={handleOnchange} rows="7"></textarea>

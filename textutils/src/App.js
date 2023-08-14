@@ -3,7 +3,6 @@ import About from './component/About';
 import Navbar from './component/Navbar';
 import Text1 from './component/Text1';
 
-
 function App() {
   return (
     <>
@@ -11,7 +10,7 @@ function App() {
     </> */}
     <Navbar title="Textutils" />
     <div className="container my-3">
-      {/* <Text1 heading = "Enter the text to analyze below "/> */}
+      <Text1 heading = "Enter the text to analyze below "/>
     </div>
     <div className="container">
       <About/>
