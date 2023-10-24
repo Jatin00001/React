@@ -1,13 +1,44 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
 
 export default function Navbar(props) {
   return (   
-        <nav className="navbar navbar-light bg-light ">
-          <span className="navbar-brand mb-0 h1 mx-5 ">{props.title}</span>
+     
+        // <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
+          <div className="container">
+            <a className="navbar-brand" href="/">{props.title}</a>
+            <button className="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"  aria-label="Toggle navigation"
+            ><span className="navbar-toggler-icon"></span></button>
+            <div className="collapse navbar-collapse " id="navbarNav">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <Link className="nav-link active" aria-current="page" to="/home">Home</Link>
+                </li>
+
+                <li className="nav-item">
+                  <Link className="nav-link active" aria-current="page" to="/about">
+                    About
+                  </Link>
+                </li>
+                {/* <li className="nav-item">
+                  <a className="nav-link active" aria-current="page" href="/">
+                    Contact
+                  </a>
+                </li> */}
+                </ul>
+                {/* backtick(``) using them called template literalls */}
+                <div className={`form-check form-switch text-${ props.mode === 'light'? 'dark':'light' }  `}>  
+                  {/* me change id for this btn */}
+                  <input className="form-check-input" onClick={props.toggleMode} type="checkbox" role="switch" id="checkbox_id" />
+                  <label className="form-check-label"  htmlFor="checkbox_id">Enable Dark Mode</label>
+                </div>
+            </div>
+          </div>
         </nav>
-        
+       
   );
 }
 
